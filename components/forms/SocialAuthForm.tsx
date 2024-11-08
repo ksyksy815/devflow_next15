@@ -11,7 +11,7 @@ const SocialAuthForm = () => {
   const buttonClass =
     "background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5";
 
-  const handleSignIn = async (provider: "github" | "google") => {
+  const handleSignIn = async (provider: "github" | "google" | "kakao") => {
     try {
       await signIn(provider, {
         callbackUrl: ROUTES.HOME,
@@ -52,6 +52,17 @@ const SocialAuthForm = () => {
           className="mr-2.5 object-contain"
         />
         <span>Log in with Google</span>
+      </Button>
+
+      <Button className={buttonClass} onClick={() => handleSignIn("kakao")}>
+        <Image
+          src={"/icons/kakao.png"}
+          alt={"Kakaotalk logo"}
+          width={20}
+          height={20}
+          className="mr-2.5 object-contain"
+        />
+        <span>Log in with Kakao</span>
       </Button>
     </div>
   );
